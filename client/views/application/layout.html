@@ -1,0 +1,65 @@
+<template name="layout">
+
+{{#if currentUser}}
+	<div class="container">
+    
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header pull-left">
+      <a class="navbar-brand" href="{{urlFor 'home'}}">Ants</a>
+    </div>
+    <div class="navbar-header pull-right">
+      <ul class="nav navbar-nav pull-left">
+        <li>
+  				{{loginButtons}}
+        </li>
+      </ul>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+       <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li> 
+      </ul>                    
+    </div> -->
+  </div>
+</nav>
+</div>
+
+
+<div class="row" style="height:60px;">
+</div>
+<div class="row">
+<div class="col-md-2">
+{{yield 'sidebar'}}
+</div>
+<div class="col-md-5">
+{{yield 'tasks'}}
+</div>
+<div class="col-md-4">
+{{yield 'dashboard'}}
+</div>
+<div class="col-md-1">
+{{else}}
+{{>homepage}}
+{{/if}}
+</div>
+</div>
+
+</template>
+
+<template name="homepage">
+  <div class="container">
+<div class="jumbotron">
+  <h1>Ants.</h1>
+  <p>Manage Tasks.</p>
+    <!-- <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p> -->
+  {{loginButtons}}
+</div>
+</div>
+</div>
+</template>

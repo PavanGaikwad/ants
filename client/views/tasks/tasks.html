@@ -1,0 +1,47 @@
+<template name="tasks">
+	<h3>Tasks from {{active_project}}:</h2>
+	<div class="form-group">
+	<input type="text" class="form-control" id="addTask" placeholder="Add Task And Press Enter" />
+	</div>
+	
+
+	{{#if task}}
+	{{#each task}}
+	{{>tasklist}}
+	{{/each}}
+	{{else}}
+	<h4>No Task1</h4>
+	{{/if}}
+</template>
+
+
+<template name="tasklist">
+	<div class="well">
+		<div style="float:right">
+		<i class="fa fa-check-circle-o" style="color:green" title="Mark as done"></i>
+		<!-- <i class="fa fa-archive" style="color:green" title="Archive task"></i> -->
+		</div>
+		<h5><i class="fa fa-folder-open-o"></i>&nbsp;{{project}}</h5>
+		
+		<h4><i class="fa fa-tasks"></i>&nbsp;{{todo}}</h4>
+		
+		
+		{{#if comments}}
+		<div class="well">
+			<h5><b>Updates:</b></h5>
+			<hr>
+		{{#each comments}}
+			{{>comment}}
+		{{/each}}
+		</div>
+		{{/if}}
+	<div class="form-group">
+	<input type="text" class="form-control" id="{{_id}}" placeholder="Post update on this task" />
+	</div>
+
+	</div>
+</template>
+
+<template name="comment">
+	<h6><i class="fa fa-comment"></i> : <b>{{comment}}</b> | <abbr class="timeago" title="{{comment_time}}">{{comment_time}}</abbr></h6>
+</template>

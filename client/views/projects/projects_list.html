@@ -1,0 +1,13 @@
+<template name="projects_list">
+	<ul class="list-group">
+		{{#each projects}}
+        <a href="/project/{{_id}}" style="text-decoration:none"><li class="list-group-item"><i class="fa fa-folder"></i>&nbsp;{{title}}
+
+        </li></a>
+        {{/each}}
+        <li class="list-group-item" ><input type="text" id="add_project" class="form-control" placeholder="Add Project"></li>
+        <br>
+        <!-- <input type="text" class="form-control" placeholder="Add Project"> -->
+        
+    </ul>
+</template>

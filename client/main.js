@@ -20,6 +20,7 @@ jQuery("abbr.timeago").timeago();
 
 Meteor.subscribe("projects");
 Meteor.subscribe("tasks");
+Meteor.subscribe("quickboard");
 
 
 

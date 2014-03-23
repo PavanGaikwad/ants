@@ -1,13 +1,30 @@
 <template name="projects_list">
-	<ul class="list-group">
+	<ul class="nav nav-pills nav-stacked">
 		{{#each projects}}
-        <a href="/project/{{_id}}" style="text-decoration:none"><li class="list-group-item"><i class="fa fa-folder"></i>&nbsp;{{title}}
-
-        </li></a>
+        
+		{{>project}}
+        
         {{/each}}
-        <li class="list-group-item" ><input type="text" id="add_project" class="form-control" placeholder="Add Project"></li>
+        <hr>
+        <li><input type="text" id="add_project" class="form-control" placeholder="Add Project"></li>
         <br>
         <!-- <input type="text" class="form-control" placeholder="Add Project"> -->
         
     </ul>
+</template>
+
+
+<template name="project">
+	{{#if projectActive}}
+		<li class='active'>
+	{{else}}
+		<li>
+	{{/if}}
+	<a href="/project/{{_id}}" style="text-decoration:none"><i class="fa fa-folder"></i>&nbsp;<b>{{title}} </b>
+
+		<span class="badge pull-right"><b>{{taskCount}}</b></span>
+
+	</a>
+	
+	</li>
 </template>
